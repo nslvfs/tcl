@@ -1,4 +1,4 @@
-##script by vfs, i dont know anymore if i "ripped" of some other scripped... public domain
+##script by vfs, i dont know anymore if i "ripped" of some other script... public domain
 
 package require uri
 
