@@ -73,7 +73,7 @@
       set mail(trigger)   "!mail"
       set mail(address)   "Exekutivfs@wegbuxen.biz"
 #      set mail(subject)   "Nachricht aus dem IRC von $nickname"
-      set mail(signature) "Diese Nachricht wurde automatisch von einem Computerprogramm aus einem IRC-Netzwerk generiert und gesendet und ist eine Nachricht eines dortigen Autors. Dieser allein ist Urheber der Nachricht und fuer dessen Inhalt verantwortlich"
+#      set mail(signature) "Diese Nachricht wurde automatisch von einem Computerprogramm aus einem IRC-Netzwerk generiert und gesendet und ist eine Nachricht eines dortigen Autors. Dieser allein ist Urheber der Nachricht und fuer dessen Inhalt verantwortlich"
       set mail(version)   "1.0.0.1"
       set mail(author)    ""
       set mail(author-i)  ""
@@ -92,8 +92,8 @@
 
 proc email { nickname hostname handle channel arguments } {
 global mail
-	set mail(subject)   "Nachricht aus dem IRC von $nickname"
-
+    set mail(subject)   "Nachricht aus dem IRC von $nickname"
+    set mail(signature) "Diese Nachricht wurde automatisch von einem Computerprogramm aus einem IRC-Netzwerk generiert und gesendet und ist eine Nachricht eines dortigen Autors. Dieser allein ist Urheber der Nachricht und fuer dessen Inhalt verantwortlich. Verwendeter Nick des Autos $handle Hostmark: $hostname IRC-Kanal: $channel"
   if {[string equal -nocase "" $arguments] && [matchattr $handle mn]} {
     putserv "notice $nickname :please use $mail(trigger) \037help\037."
     putserv "notice $nickname :email.tcl - version $mail(version) by ${mail(author-i)}"
