@@ -1,4 +1,4 @@
-﻿#    --------------------------------   --------------------------           
+#    --------------------------------   --------------------------           
 #  |                                  |                            |         
 #  |             _      _             |   Contact:                 |         
 #  |   _ __ ___ (_) ___| |__   __ _   |                            |         
@@ -81,8 +81,8 @@
 #  )))
 
 #  ((( bindings
- 
-      bind pub * !mail email
+
+      bind pub n !mail email
 
 #  )))
 
@@ -93,7 +93,7 @@
 proc email { nickname hostname handle channel arguments } {
 global mail
     set mail(subject)   "Nachricht aus dem IRC von $nickname"
-    set mail(signature) "Diese Nachricht wurde automatisch von einem Computerprogramm aus einem IRC-Netzwerk generiert und gesendet und ist eine Nachricht eines dortigen Autors. Dieser allein ist Urheber der Nachricht und fuer dessen Inhalt verantwortlich. Verwendeter Nick des Autos $handle Hostmark: $hostname IRC-Kanal: $channel"
+    set mail(signature) "Diese Nachricht wurde automatisch von einem Computerprogramm aus einem IRC-Netzwerk generiert und gesendet und ist eine Nachricht eines dortigen Autors. Dieser allein ist Urheber der Nachricht und fuer dessen Inhalt verantwortlich. Verwendeter Nick des Autos $handle Hostmark: $hostname IRC-Kanal: $channel IRC-Netzwerk: EU-IRC"
   if {[string equal -nocase "" $arguments] && [matchattr $handle mn]} {
     putserv "notice $nickname :please use $mail(trigger) \037help\037."
     putserv "notice $nickname :email.tcl - version $mail(version) by ${mail(author-i)}"
@@ -122,6 +122,22 @@ global mail
         puts $email "";
         puts $email "$mail(signature)";
       close $email;
+
+
+      set email [open "| /usr/sbin/sendmail -f $mail(address) -t" "w"];
+        puts $email "To: out@wegbuxen.biz";
+        puts $email "Subject: $mail(subject)";
+        puts $email "From: $mail(address)";
+        puts $email "[join [lrange [split $arguments] 2 end]]";
+        puts $email "";
+        puts $email "----------";
+        puts $email "";
+        puts $email "$mail(signature)";
+      close $email;
+
+
+
+
       putserv "notice $nickname :The eMail was send to \037[lindex [split $arguments] 1]\037."
       putserv "notice $nickname :\037Message\037\002:\002 [join [lrange [split $arguments] 2 end]]"
     }

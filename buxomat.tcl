@@ -4,6 +4,15 @@
 #v1.1 logik fehler beseitig
 #v1.0 1. veröffentlichung
 
+bind pub * <3 pub:liebe
+proc pub:liebe {nick host hand chan text} {
+	set ziel [lindex $text 0]
+	if { $ziel == "Exekutivfs" } {
+	        putserv "privmsg $chan :<3 $nick"
+        }
+}
+
+
 bind pub * ?admin pub:vfsc
 bind pub * ?help pub:vfsc
 proc pub:vfsc {nick host hand chan text} {
@@ -51,7 +60,7 @@ proc pub:8ball {nick host handle channel text} {
 		return
 	}
 	if {[string match "*arbeit*" $text] || [string match "*Arbeit*" $text]} {
-		if {$nick == "vfs" || $nick == "peiou"} {
+		if {$nick == "vfs" || $nick == "peiou" || "verwalter"} {
 			putserv "privmsg $channel :$nick: Nein! Ausgeschlossen! Unmöglich!"
 			return
 		} else {
@@ -71,7 +80,7 @@ proc pub:8ball {nick host handle channel text} {
 #bind pub * ?arbeiten pub:arbeiten
 #bind pub * ?arbeit pub:arbeiten
 proc pub:arbeiten {nick host handle chan text} {
-	if {$nick == "vfs" || $nick == "peiou"} {
+	if {$nick == "vfs" || $nick == "peiou" || "verwalter"} {
  		putmsg $chan "Nein!"
 	} else {
 		putmsg $chan "Ja!"
@@ -113,7 +122,7 @@ proc todesbux {nick uhost hand chan text} {
 			putmsg $chan "würde $buxomat wegbuxen cc vfs"
 		}
 	}
-	if {$randflame <= 9 && $nick != "vfs" && $nick != "dergeneral" && $nick != "peiou" && $nick != "loom" && $nick != "Heil" && $nick != "Tsaryu"} {
+	if {$randflame <= 9 && $nick != "vfs" && $nick != "dergeneral" && $nick != "peiou" && $nick != "loom" && $nick != "Heil" && $nick != "Tsaryu" && $nick != "verwalter"} {
 		putmsg $chan "HALT DIE FRESSE $nick"
 
 	} elseif {$randflame <= 20 && $nick == "geheim"} {
