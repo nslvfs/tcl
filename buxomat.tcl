@@ -149,7 +149,8 @@ proc countdown {nickname hostname handle channel arg} {
     set left [expr { $date1 - $now }]
     set formatted [clock format $date1 -format "%d.%m.%Y"]
     set leftform [duration $left]
-    puthelp "PRIVMSG $channel :$nickname: Noch $leftform bis zum Führergeburtstag am $formatted - an diesem Tag passiert sonst nichts relevantes"
+	puthelp "PRIVMSG $channel :.tweet  Noch $leftform bis zum Fuehrergeburtstag"
+#    puthelp "PRIVMSG $channel :.tweet Noch $leftform bis zum Führergeburtstag am $formatted - an diesem Tag passiert sonst nichts relevantes"
 
 }
 
