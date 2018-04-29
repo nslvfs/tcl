@@ -1,5 +1,5 @@
 #written 2014 by vfs - public domain
-#you can contact me on irc.hackint.org/#nsl
+#you can not contact me
 set floodprot "false"
 
 bind pub - !aeg privileg
@@ -35,7 +35,7 @@ proc privileg {nick host handle chan arg} {
 			set status ""
 		}		
 
-		set lsexo {heterosexuelle*r asexuelle*r homokriminelle*r bisexuelle*r pansexuelle*r zoophile*r pädophile*r}
+		set lsexo {heterosexuelle*r asexuelle*r homokriminelle*r bisexuelle*r pansexuelle*r zoophile*r pÃ¤dophile*r}
 		set lsexoc [expr [llength $lsexo] -1]
 		set lrand "[rand $lsexoc]"
 		set sexo "[lindex $lsexo $lrand], "
@@ -44,7 +44,7 @@ proc privileg {nick host handle chan arg} {
 			set sexo ""
 		}
 		
-		set lethnic {"latein amerikanische*r" asiatische*r negroide*r arabische*r kaukasische*r indianische*r inuitische*r aldebaranische*r reptiloidische*r arische*r jüdische*r semitische*r}
+		set lethnic {"latein amerikanische*r" asiatische*r negroide*r arabische*r kaukasische*r indianische*r inuitische*r aldebaranische*r reptiloidische*r arische*r jÃ¼dische*r semitische*r}
 		set lethnicc [expr [llength $lethnic] -1]
 		set lrand "[rand $lethnicc]"
 		set ethnic "[lindex $lethnic $lrand], "
@@ -53,7 +53,7 @@ proc privileg {nick host handle chan arg} {
 			set ethnic ""
 		}
 
-		set loffspring {Israel Deutschland "deutschem Reich" Japan Südeuropa "mittlerem Osten" Osteuropa Afrika Lateinamerika Mitteleuropa Indien Skandinavien Küsten-China "Vereinigten Staaten" Kanada Zentralchina Ozeanien}
+		set loffspring {Israel Deutschland "deutschem Reich" Japan SÃ¼deuropa "mittlerem Osten" Osteuropa Afrika Lateinamerika Mitteleuropa Indien Skandinavien KÃ¼sten-China "Vereinigten Staaten" Kanada Zentralchina Ozeanien}
 		set loffspringc [expr [llength $loffspring] -1]
 		set lrand "[rand $loffspringc]"
 		set offspring "aus [lindex $loffspring $lrand] kommende*r "
@@ -90,7 +90,7 @@ proc privileg {nick host handle chan arg} {
 				
 	
 
-		set ljob {Wissenschaftler*in Arbeitslose*r Neet Mediziner*in Elektroniker*in Lehrer*in Beamte*r "Investmentb�nker*in" Ingenieur*in Einzelhändler*in}
+		set ljob {Wissenschaftler*in Arbeitslose*r Neet Mediziner*in Elektroniker*in Lehrer*in Beamte*r "Investmentbänker*in" Ingenieur*in EinzelhÃ¤ndler*in}
 		set ljobc [expr [llength $ljob] -1]
 		set lrand "[rand $ljobc]"
 		set job "Dein Beruf ist [lindex $ljob $lrand]. "
@@ -109,7 +109,7 @@ proc privileg {nick host handle chan arg} {
 			set kineship ""
 		}
 
-		set lable {adipös übergewichtig "sehr attraktiv" "optisch benachteiligt" "ein Gesichtselfmeter" "durschnittlich Attraktiv" "von Akne Betroffende*r" "intellektuell Herrausgeforderte*r" "chronisch Krank" Rollstuhlfahrer*in Autist*in blind geisteskrank taub gesund "Down-Syndrom geschädigt"}
+		set lable {adipÃ¶s Ã¼bergewichtig "sehr attraktiv" "optisch benachteiligt" "ein Gesichtselfmeter" "durschnittlich Attraktiv" "von Akne Betroffende*r" "intellektuell Herrausgeforderte*r" "chronisch Krank" Rollstuhlfahrer*in Autist*in blind geisteskrank taub gesund "Down-Syndrom geschÃ¤digt"}
 		set lablec [expr [llength $lable] -1]
 		set lrand "[rand $lablec]"
 		set able "Du bist [lindex $lable $lrand]. "
@@ -118,7 +118,7 @@ proc privileg {nick host handle chan arg} {
 			set able ""
 		}		
 
-		set lreligion {Judx Aussenseiterreligionsanhängx Buddhist*in Hinduist*im Evangelikale*r "Anhänger*in der Kirche der Orthodoxie" Prostestant*in Katholik*in Muslim*in Sikh*in Atheist*in Agnostiker*in Satanist*in "Zeugx Jehova" "Neu Heidx"}
+		set lreligion {Judx AussenseiterreligionsanhÃ¤ngx Buddhist*in Hinduist*im Evangelikale*r "AnhÃ¤nger*in der Kirche der Orthodoxie" Prostestant*in Katholik*in Muslim*in Sikh*in Atheist*in Agnostiker*in Satanist*in "Zeugx Jehova" "Neu Heidx"}
 		set lreligionc [expr [llength $lreligion] -1]
 		set lrand "[rand $lreligionc]"
 		set religion "Du bist glaubenstechnisch ein*e [lindex $lreligion $lrand]."
